@@ -39,17 +39,8 @@ module.exports = function MagicAccount() {
   });
 
   this.Then(/^load main page for authenticated user$/, async () => {
-    console.log("Length - " + await browser.executeScript("return document.getElementsByTagName('div').length"));
-    await browser.executeScript(`
-      var elements = document.getElementsByTagName("div");
-      for (var i = 0; i < elements.length; i++) {
-        if (elements[i].innerText == "Go to Blockstack") {
-          elements[i].click();
-          return;
-        }
-      }
-      throw new Error("not found");
-    `);
+    await Utils.click(element(By.css('div[class^="button__Label"]')));
+    // await Utils.click(element(By.cssContainingText('div[class^="button__Label"]', 'Go to Blockstack')));
     await browser.sleep(2999);
     await Utils.waitForElement(element(By.xpath('//*[text()="Top Apps"]')));
   });
