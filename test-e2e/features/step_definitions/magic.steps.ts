@@ -32,7 +32,7 @@ module.exports = function MagicAccount() {
   });
 
   this.Then(/^wait for Restoring your Blockstack ID$/, async () => {
-    await Utils.waitForElement(element(By.xpath('//*[contains(text(), "Restoring your Blockstack ID")]')));
+    // await Utils.waitForElement(element(By.xpath('//*[contains(text(), "Restoring your Blockstack ID")]')));
     await Utils.waitForElementToDisappear(element(By.xpath('//*[contains(text(), "Restoring your Blockstack ID")]')));
     // wait for next page to load
     await Utils.waitForElement(element(By.xpath('//*[contains(.,"Go to Blockstack")]')));
