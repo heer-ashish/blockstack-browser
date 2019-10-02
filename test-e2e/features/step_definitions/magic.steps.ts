@@ -39,19 +39,18 @@ module.exports = function MagicAccount() {
   });
 
   this.Then(/^load main page for authenticated user$/, async () => {
-    // await browser.executeScript(`
-    //   var elements = document.getElementsByTagName("div");
-    //   for (var i = 0; i < elements.length; i++) {
-    //     if (elements[i].innerText == "Go to Blockstack") {
-    //       elements[i].click();
-    //       return;
-    //     }
-    //   }
-    //   throw new Error("not found");
-    // `);
-    await Utils.waitForElementToDisplayed(element(By.xpath('//*[contains(.,"Go to Blockstack")]')));
-    await element(By.xpath('//*[contains(.,"Go to Blockstack")]')).click();
-    await Utils.waitForElementToDisplayed(element(By.xpath('//*[text()="Top Apps"]')));
+    console.log("Length - " + await browser.executeScript("return document.getElementsByTagName('div').length"));
+    await browser.executeScript(`
+      var elements = document.getElementsByTagName("div");
+      for (var i = 0; i < elements.length; i++) {
+        if (elements[i].innerText == "Go to Blockstack") {
+          elements[i].click();
+          return;
+        }
+      }
+      throw new Error("not found");
+    `);
+    await browser.sleep(2999);
     await Utils.waitForElement(element(By.xpath('//*[text()="Top Apps"]')));
   });
 };
