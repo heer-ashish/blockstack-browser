@@ -219,6 +219,6 @@
     "prod-webapp": "npm run clean && cross-env NODE_ENV=production WEBAPP=true webpack",
     "test-e2e": "cd ./test-e2e && npm run test-e2e",
     "test-e2e:localBuild": "cross-env NODE_ENV=production WEBAPP=true DEBUG_LOGGING=true webpack && cross-env E2E_BROWSER_HOST='../build' npm run test-e2e",
-    "test-e2e:browserstack": "cross-env NODE_ENV=production WEBAPP=true DEBUG_LOGGING=true webpack && cd ./test-e2e && cross-env E2E_BROWSER_HOST='../build' USE_BROWSERSTACK=true BROWSERSTACK_AUTH='cirisipof1:BEpswdvSWBTsZEVpp89t' npm run test-e2e:browserstack"
+    "test-e2e:browserstack": "cross-env NODE_ENV=production WEBAPP=true DEBUG_LOGGING=true webpack && cd ./test-e2e && cross-env E2E_BROWSER_HOST='../build' USE_BROWSERSTACK=true BROWSERSTACK_AUTH='tester3635:rZCmbyweDvVbXydDYizd' npm run test-e2e:browserstack"
   }
 }
