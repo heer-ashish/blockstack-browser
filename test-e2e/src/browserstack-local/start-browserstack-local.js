@@ -1,6 +1,5 @@
 /* eslint no-console: ["error", { allow: ["warn", "error","log"] }] */
 const browserstack = require("browserstack-local");
-const helpers = require('./src/utils/helpers');
 const bsLocal = new browserstack.Local();
 
 /* replace <browserstack-accesskey> with your key.
