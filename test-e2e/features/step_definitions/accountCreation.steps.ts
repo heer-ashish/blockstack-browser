@@ -46,7 +46,11 @@ module.exports = function myStepDefinitions() {
   });
 
   this.After(async () => {
-    // await browser.driver.manage().deleteAllCookies()
+    try {
+      await browser.manage().deleteAllCookies();
+    } catch (e) {
+      console.log("Cookies are not deleted.");
+    }
     await browser.get(browser.params.browserHostUrl);
     await browser.executeScript('window.sessionStorage.clear();');
     await browser.executeScript('window.localStorage.clear();');
