@@ -1,6 +1,6 @@
 Feature: BlockStack
 
-  @localhost
+  @login
   Scenario:login-to-hello-blockstack-app
     Given load initial page
     And load app list
@@ -23,6 +23,7 @@ Feature: BlockStack
     Then validate blockstack signUserOut
     And validate localStorage user data is been cleared
 
+  @accountCreation
   Scenario: Account Creation
     Given load initial page
     And set "test-registrar.blockstack.org" as API endpoint for ID registration
@@ -39,6 +40,7 @@ Feature: BlockStack
     Then perform recovery key phrase verification instructions
     And load main page as authenticated user
 
+    @magicRecovery
   Scenario:account-recovery-via-magic-recovery-code
     Given load initial page
     And load sign in page
@@ -49,7 +51,7 @@ Feature: BlockStack
     And wait for Restoring your Blockstack ID
     Then load main page for authenticated user
 
-  @secret
+  @secretRecovery
   Scenario:account-recovery-via-secret-key
     Given load initial page
     And load sign in page
