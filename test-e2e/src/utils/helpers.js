@@ -12,7 +12,7 @@ module.exports = class Helpers {
   static getRandomInt(min = 1000000000, max = 99999999999) {
     return (Math.floor(Math.random() * (max - min)) + min);
   }
-  static randomStr: string
+  static randomStr = null;
   static setRandomString(length) {
     let str = '';
     do { str += Math.random().toString(36).substr(2) } while (str.length < length)
