@@ -49,6 +49,7 @@ Feature: BlockStack
     And wait for Restoring your Blockstack ID
     Then load main page for authenticated user
 
+  @secret
   Scenario:account-recovery-via-secret-key
     Given load initial page
     And load sign in page

@@ -62,7 +62,7 @@ module.exports = [
   //   'os_version' : '11'
   // },
   //
-  // // Android
+  // Android
   {
     'name': 'Android-9.0-Google-Pixel-3',
     'browserName' : 'android',

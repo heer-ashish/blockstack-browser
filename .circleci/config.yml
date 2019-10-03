@@ -14,6 +14,7 @@ jobs:
           name: Running Tests
           command: |
             export NODE_OPTIONS=--max_old_space_size=4096
+            export CUCUMBER_TAG='@secret'
             npm run test-e2e:browserstack
       - store_artifacts:
           path: test-e2e/target/site/serenity

@@ -173,8 +173,11 @@ const config = {
 
   // Trim trailing url slash(es).
   config.params.browserHostUrl = config.params.browserHostUrl.replace(/\/+$/, '');
+  const CUCUMBER_TAG = 'CUCUMBER_TAG';
+  if (process.env[E2E_BROWSER_HOST]) {
+    config.cucumberOpts.tags = process.env[CUCUMBER_TAG];
+  }
   return config;
-
 })();
 
 
