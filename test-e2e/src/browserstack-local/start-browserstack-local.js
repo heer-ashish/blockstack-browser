@@ -1,5 +1,6 @@
 /* eslint no-console: ["error", { allow: ["warn", "error","log"] }] */
 const browserstack = require("browserstack-local");
+const helpers = require('./src/utils/helpers');
 const bsLocal = new browserstack.Local();
 
 /* replace <browserstack-accesskey> with your key.
@@ -9,7 +10,7 @@ const BROWSERSTACK_AUTH = 'BROWSERSTACK_AUTH';
 
 const bsLocalArgs = {
   key: process.env[BROWSERSTACK_AUTH].trim().split(/:(.+)/)[1],
-  "local-identifier": "blocktack-ui-testing",
+  "local-identifier": helpers.getRandomString(20),
   force: "true",
   verbose: "true",
 };

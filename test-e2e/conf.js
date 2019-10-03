@@ -140,7 +140,7 @@ const config = {
       'browserstack.console': 'verbose',
       'browserstack.local': 'true',
       'browserstack.debug': 'true',
-      'browserstack.localIdentifier': 'blocktack-ui-testing'
+      'browserstack.localIdentifier': config.params.browserStack.localIdentifier
     };
   }
 

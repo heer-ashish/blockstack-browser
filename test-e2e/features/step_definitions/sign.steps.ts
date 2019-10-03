@@ -20,7 +20,7 @@ module.exports = function signIn() {
   let getFileResult;
   let localStorageSession;
 
-  this.Before({tags: ["@localhost"]}, async () => {
+  this.Before({tags: ["@login"]}, async () => {
     // We only need to initialize this server once, so assign the promise object immediately,
     // so that subsequent executions do not attempt to spawn a new server.
     try {
@@ -32,7 +32,7 @@ module.exports = function signIn() {
 
   });
 
-  this.Before({tags: ["@localhost"]}, async () => {
+  this.Before({tags: ["@login"]}, async () => {
     const capabilities = await browser.getCapabilities();
     const browserName = capabilities.get('browserName');
     if (!browser.params.browserStack.enabled && browserName === 'chrome' && await Canopenprotocol.canOpenProtocol()) {
@@ -41,7 +41,7 @@ module.exports = function signIn() {
     }
   });
 
-  this.After({tags: ["@localhost"]}, async () => {
+  this.After({tags: ["@login"]}, async () => {
     if (helloServer) {
       const helloServerRef = helloServer;
       helloServer = null;

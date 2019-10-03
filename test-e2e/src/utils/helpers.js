@@ -12,11 +12,18 @@ module.exports = class Helpers {
   static getRandomInt(min = 1000000000, max = 99999999999) {
     return (Math.floor(Math.random() * (max - min)) + min);
   }
-
-  static getRandomString(length = 20) {
+  static randomStr: string
+  static setRandomString(length) {
     let str = '';
     do { str += Math.random().toString(36).substr(2) } while (str.length < length)
-    return str.substr(0, length);
+    this.randomStr = str.substr(0, length);
+  }
+
+  static getRandomString(length = 20): string {
+    if(this.randomStr === null || this.randomStr.length != length) {
+      this.setRandomString(length);
+    }
+    return this.randomStr;
   }
 
   static mixin(target, other) {
