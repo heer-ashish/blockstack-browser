@@ -9,9 +9,9 @@ jobs:
       - run:
           name: Repo Check 1
           command: |
+              export TEST_E2E_GREP=login-to-hello-blockstack-app
               export BROWSERSTACK_AUTH="gacop1:5NmFByapv6gexSQfKyTK"
               npm install && npm run test-e2e:browserstack
-            fi
       - store_artifacts:
           path: /tmp/test-errors
 workflows:
